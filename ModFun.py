@@ -227,6 +227,7 @@ def Fuentes(opc,N,L):
                 tipo=2
             elif tn==2:
                 Q=Tipo_Fuente(Q,h)
+                Q[N-2]=Q[N-2]/2
                 tipo=3
             else:
                  print('Opcion no valida')
@@ -483,7 +484,7 @@ def Sol_Aprox(A,Tf,Temp,Q,N,cond,tk,k,h):
     elif(cond==2 and tk==1):
         r=k/(h**2)
         #Definicion de la matriz b
-        b=Tf+(1/r)*-Q
+        b=Tf+(1/r)*Q
         #Resolviendo el sistema
         Temp[1:N] = np.linalg.solve(A,b)
     else:
